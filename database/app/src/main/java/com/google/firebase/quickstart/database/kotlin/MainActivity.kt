@@ -9,7 +9,6 @@ import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.quickstart.database.R
 import com.google.firebase.quickstart.database.kotlin.fragment.MyPostsFragment
-import com.google.firebase.quickstart.database.kotlin.fragment.MyTopPostsFragment
 import com.google.firebase.quickstart.database.kotlin.fragment.RecentPostsFragment
 import kotlinx.android.synthetic.main.activity_main.container
 import kotlinx.android.synthetic.main.activity_main.fabNewPost
@@ -27,13 +26,13 @@ class MainActivity : BaseActivity() {
         pagerAdapter = object : FragmentPagerAdapter(supportFragmentManager) {
             private val fragments = arrayOf<Fragment>(
                     RecentPostsFragment(),
-                    MyPostsFragment(),
-                    MyTopPostsFragment())
+                    MyPostsFragment()
+            )
 
             private val fragmentNames = arrayOf(
                     getString(R.string.heading_recent),
-                    getString(R.string.heading_my_posts),
-                    getString(R.string.heading_my_top_posts))
+                    getString(R.string.heading_my_posts)
+            )
 
             override fun getItem(position: Int): Fragment {
                 return fragments[position]
@@ -50,9 +49,9 @@ class MainActivity : BaseActivity() {
         container.adapter = pagerAdapter
         tabs.setupWithViewPager(container)
 
-        // Button launches NewPostActivity
+        // Button launches GameActivity
         fabNewPost.setOnClickListener {
-            startActivity(Intent(this, NewPostActivity::class.java))
+            startActivity(Intent(this, GameActivity::class.java))
         }
     }
 

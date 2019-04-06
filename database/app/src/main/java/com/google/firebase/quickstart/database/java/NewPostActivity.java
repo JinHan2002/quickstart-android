@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class NewPostActivity extends BaseActivity {
 
-    private static final String TAG = "NewPostActivity";
+    private static final String TAG = "GameActivity";
     private static final String REQUIRED = "Required";
 
     // [START declare_database_ref]
@@ -36,7 +36,7 @@ public class NewPostActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_post);
+        setContentView(R.layout.activity_game);
 
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();

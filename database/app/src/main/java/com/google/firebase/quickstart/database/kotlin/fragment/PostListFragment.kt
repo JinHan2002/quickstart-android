@@ -82,17 +82,17 @@ abstract class PostListFragment : Fragment() {
             override fun onBindViewHolder(viewHolder: PostViewHolder, position: Int, model: Post) {
                 val postRef = getRef(position)
 
-                // Set click listener for the whole post view
+                // Cancel click listener for the whole post view
                 val postKey = postRef.key
-                viewHolder.itemView.setOnClickListener {
-                    // Launch PostDetailActivity
-                    val intent = Intent(activity, PostDetailActivity::class.java)
-                    intent.putExtra(PostDetailActivity.EXTRA_POST_KEY, postKey)
-                    startActivity(intent)
-                }
+//                viewHolder.itemView.setOnClickListener {
+//                    // Launch PostDetailActivity
+//                    val intent = Intent(activity, PostDetailActivity::class.java)
+//                    intent.putExtra(PostDetailActivity.EXTRA_POST_KEY, postKey)
+//                    startActivity(intent)
+//                }
 
                 // Determine if the current user has liked this post and set UI accordingly
-                viewHolder.setLikedState(model.stars.containsKey(uid))
+
 
                 // Bind Post to ViewHolder, setting OnClickListener for the star button
                 viewHolder.bindToPost(model, View.OnClickListener {

@@ -12,12 +12,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.quickstart.database.R
 import com.google.firebase.quickstart.database.kotlin.models.Post
 import com.google.firebase.quickstart.database.kotlin.models.User
-import kotlinx.android.synthetic.main.activity_new_post.fabSubmitPost
-import kotlinx.android.synthetic.main.activity_new_post.fieldBody
-import kotlinx.android.synthetic.main.activity_new_post.fieldTitle
+import kotlinx.android.synthetic.main.activity_game.fabSubmitPost
+import kotlinx.android.synthetic.main.activity_game.fieldBody
+import kotlinx.android.synthetic.main.activity_game.fieldTitle
 import java.util.HashMap
 
-class NewPostActivity : BaseActivity() {
+class GameActivity : BaseActivity() {
 
     // [START declare_database_ref]
     private lateinit var database: DatabaseReference
@@ -25,7 +25,7 @@ class NewPostActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_post)
+        setContentView(R.layout.activity_game)
 
         // [START initialize_database_ref]
         database = FirebaseDatabase.getInstance().reference
@@ -34,6 +34,8 @@ class NewPostActivity : BaseActivity() {
         fabSubmitPost.setOnClickListener { submitPost() }
     }
 
+
+    //after the game is over, uodate the database
     private fun submitPost() {
         val title = fieldTitle.text.toString()
         val body = fieldBody.text.toString()
@@ -123,7 +125,7 @@ class NewPostActivity : BaseActivity() {
 
     companion object {
 
-        private const val TAG = "NewPostActivity"
+        private const val TAG = "GameActivity"
         private const val REQUIRED = "Required"
     }
 }
